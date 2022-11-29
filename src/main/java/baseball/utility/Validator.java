@@ -24,21 +24,21 @@ public class Validator {
         return true;
     }
 
-    private boolean numberLengthCheck(String testObject) {
+    public boolean numberLengthCheck(String testObject) {
         return testObject.length() == MAX_LENGTH;
     }
 
-    private boolean stringCheck(String testObject) {
+    public boolean stringCheck(String testObject) {
         Pattern zeroToNine = Pattern.compile(ZERO_TO_NINE);
         return zeroToNine.matcher(testObject).matches();
     }
 
-    private boolean rangeCheck(String testObject) {
+    public boolean rangeCheck(String testObject) {
         Pattern OneToNine = Pattern.compile(ONE_TO_NINE);
         return OneToNine.matcher(testObject).matches();
     }
 
-    private boolean duplicationCheck(String testObject) {
+    public boolean duplicationCheck(String testObject) {
         return Arrays.stream(testObject.split(BLANK))
                 .distinct()
                 .count() == testObject.length();
