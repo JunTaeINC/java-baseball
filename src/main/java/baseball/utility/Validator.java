@@ -9,6 +9,8 @@ public class Validator {
     private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 9;
     private static final int MAX_LENGTH = 3;
+    private static final String BLANK = "";
+
     private static final String ZERO_TO_NINE = "^[0-9]*$";
     private static final String ONE_TO_NINE = "^[1-9]*$";
 
@@ -22,27 +24,31 @@ public class Validator {
         return true;
     }
 
-    public static boolean numberLengthCheck(String testObject) {
-        if (testObject.length() != 3) {
-            throw new IllegalArgumentException();
-        }
-        return true;
+    private boolean numberLengthCheck(String testObject) {
+        return testObject.length() == 3;
     }
 
-    public static boolean stringCheck(String testObject) {
+    private boolean stringCheck(String testObject) {
         Pattern zeroToNine = Pattern.compile(ZERO_TO_NINE);
-        if (!zeroToNine.matcher(testObject).matches()) {
-            throw new IllegalArgumentException();
-        }
-        return true;
+        return zeroToNine.matcher(testObject).matches();
     }
 
-    public static boolean rangeCheck(String testObject) {
+    private boolean rangeCheck(String testObject) {
         Pattern OneToNine = Pattern.compile(ONE_TO_NINE);
-        if (!OneToNine.matcher(testObject).matches()) {
-            throw new IllegalArgumentException();
+        return OneToNine.matcher(testObject).matches();
+    }
+
+    private boolean duplicationCheck(String testObject) {
+        return Arrays.stream(testObject.split(BLANK))
+                .distinct()
+                .count() == testObject.length();
+    }
+
+    public boolean validatorCheck(String userInput) {
+        if (duplicationCheck(userInput) && rangeCheck(userInput) && stringCheck(userInput)) {
+            return true;
         }
-        return true;
+        throw new IllegalArgumentException();
     }
 
 }
