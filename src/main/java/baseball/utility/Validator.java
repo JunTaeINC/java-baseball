@@ -25,7 +25,7 @@ public class Validator {
     }
 
     private boolean numberLengthCheck(String testObject) {
-        return testObject.length() == 3;
+        return testObject.length() == MAX_LENGTH;
     }
 
     private boolean stringCheck(String testObject) {
@@ -45,10 +45,7 @@ public class Validator {
     }
 
     public boolean validatorCheck(String userInput) {
-        if (duplicationCheck(userInput) && rangeCheck(userInput) && stringCheck(userInput)) {
-            return true;
-        }
-        throw new IllegalArgumentException();
+        return duplicationCheck(userInput) && rangeCheck(userInput) && stringCheck(userInput) && numberLengthCheck(userInput);
     }
 
 }
