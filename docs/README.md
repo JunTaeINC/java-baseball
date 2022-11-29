@@ -2,7 +2,7 @@
 
 ---
 ### (ComputerNumber)
-- [ ] 컴퓨터 랜덤번호 생성하기
+- [X] 컴퓨터 랜덤번호 생성하기 ( setComputerNumbers )
   - 1 ~ 9 사이의 숫자
   - 중복 X
   - 세 자리의 숫자
