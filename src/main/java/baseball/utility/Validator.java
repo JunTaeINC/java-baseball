@@ -17,4 +17,11 @@ public class Validator {
         return true;
     }
 
+    public static boolean numberLengthCheck(String testObject) {
+        if (testObject.length() != 3) {
+            throw new IllegalArgumentException();
+        }
+        return true;
+    }
+
 }
