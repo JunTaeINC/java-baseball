@@ -11,9 +11,6 @@ public class GameController {
 
     private final String START_MESSAGE = "숫자 야구 게임을 시작합니다.";
 
-    private int STRIKE = 0;
-    private int BALL = 0;
-
 
     public void playGame() {
         ComputerNumber computerNumber = new ComputerNumber();
@@ -27,23 +24,25 @@ public class GameController {
         }
     }
 
-    private int countStrike(List<Integer> computer, List<Integer> user) {
+    public  int countStrike(List<Integer> computer, List<Integer> user) {
+        int strike = 0;
         for (int space = 0; space < computer.size(); space++) {
             if (Objects.equals(computer.get(space), user.get(space))) {
-                STRIKE++;
+                strike++;
             }
         }
-        return STRIKE;
+        return strike;
     }
 
-    private int countBall(List<Integer> computer, List<Integer> user) {
+    public int countBall(List<Integer> computer, List<Integer> user) {
+        int ball = 0;
         for (int space = 0; space < computer.size(); space++) {
             if (!Objects.equals(computer.get(space), user.get(space)) && computer.contains(user.get(space))) {
-                BALL++;
+                ball++;
             }
 
         }
-        return BALL;
+        return ball;
     }
 
 }
