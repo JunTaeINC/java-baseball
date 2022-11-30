@@ -11,10 +11,19 @@ public class InputView {
     private final Validator validator = new Validator();
 
 
-    public String userInput() {
+    public String getUserInput() {
         System.out.print(INPUT_SENTENCE);
         String input = Console.readLine();
         if (!validator.validatorCheck(input)) {
+            throw new IllegalArgumentException();
+        }
+        return input;
+    }
+
+    public String getExitOrRestart() {
+        System.out.println(EXIT_SENTENCE);
+        String input = Console.readLine();
+        if (!validator.stringCheck(input) && !validator.oneOrTwoNumberCheck(input)) {
             throw new IllegalArgumentException();
         }
         return input;
