@@ -10,4 +10,8 @@ public enum ScoreMessage {
     ScoreMessage(final String scoreMessage){
         this.scoreMessage = scoreMessage;
     }
+
+    public String getScoreMessage(){
+        return scoreMessage;
+    }
 }
