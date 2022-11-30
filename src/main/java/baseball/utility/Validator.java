@@ -2,6 +2,7 @@ package baseball.utility;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class Validator {
@@ -46,6 +47,10 @@ public class Validator {
 
     public boolean validatorCheck(String userInput) {
         return duplicationCheck(userInput) && rangeCheck(userInput) && stringCheck(userInput) && numberLengthCheck(userInput);
+    }
+
+    public boolean oneOrTwoNumberCheck(String userInput) {
+        return Objects.equals(userInput, "1") || Objects.equals(userInput, "2");
     }
 
 }
