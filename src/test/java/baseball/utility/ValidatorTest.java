@@ -124,4 +124,28 @@ class ValidatorTest {
             assertFalse(validator.duplicationCheck(userInput3));
         }
     }
+
+    @DisplayName("입력 숫자 중복 검사")
+    @Nested
+    class Exit_Or_Restart_Check {
+
+        @Test
+        void case_True() {
+            String userInput1 = "1";
+            String userInput2 = "2";
+
+            assertTrue(validator.exitOrReStartCheck(userInput1));
+            assertTrue(validator.exitOrReStartCheck(userInput2));
+        }
+
+        @Test
+        void case_False() {
+            String userInput1 = "탈출";
+            String userInput2 = "j";
+
+            assertFalse(validator.exitOrReStartCheck(userInput1));
+            assertFalse(validator.exitOrReStartCheck(userInput2));
+        }
+
+    }
 }
