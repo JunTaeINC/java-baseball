@@ -22,15 +22,14 @@ public class GameController {
     private final int ZERO = 0;
     private final int THREE = 3;
     private boolean exitCode = false;
-    private int strike = 0;
-    private int ball = 0;
     private List<Integer> computerNumbersList = computerNumber.setComputerNumbers();
 
     public void playGame() {
         System.out.println(START_MESSAGE);
         while (!exitCode) {
             List<Integer> userNumbersList = userNumber.setUserNumbers(inputView.getUserInput());
-            System.out.println(outputView.printResult(strike,ball));
+            System.out.println(outputView.printResult(countStrike(computerNumbersList, userNumbersList),
+                    countBall(computerNumbersList, userNumbersList)));
             if (countStrike(computerNumbersList, userNumbersList) == THREE) {
                 exitCode = exitOrRestart(inputView.getExitOrRestart());
             }

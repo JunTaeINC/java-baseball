@@ -20,4 +20,5 @@ public class OutputView {
                     + strike + ScoreMessage.STRIKE.getScoreMessage();
         }
     }
+
 }

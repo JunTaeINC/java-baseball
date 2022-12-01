@@ -7,11 +7,12 @@ public enum ScoreMessage {
 
     private final String scoreMessage;
 
-    ScoreMessage(final String scoreMessage){
+    ScoreMessage(final String scoreMessage) {
         this.scoreMessage = scoreMessage;
     }
 
-    public String getScoreMessage(){
+    public String getScoreMessage() {
         return scoreMessage;
     }
+
 }
