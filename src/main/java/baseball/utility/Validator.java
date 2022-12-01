@@ -53,4 +53,8 @@ public class Validator {
         return Objects.equals(userInput, "1") || Objects.equals(userInput, "2");
     }
 
+    public boolean exitOrReStartCheck(String userInput) {
+        return stringCheck(userInput) && oneOrTwoNumberCheck(userInput);
+    }
+
 }
