@@ -14,6 +14,8 @@ public class Validator {
 
     private static final String ZERO_TO_NINE = "^[0-9]*$";
     private static final String ONE_TO_NINE = "^[1-9]*$";
+    private static final String RESTART_CODE = "1";
+    private static final String EXIT_CODE = "2";
 
 
     public static boolean checkNumberRangeCheck(List<Integer> testObject) {
@@ -50,7 +52,7 @@ public class Validator {
     }
 
     public boolean oneOrTwoNumberCheck(String userInput) {
-        return Objects.equals(userInput, "1") || Objects.equals(userInput, "2");
+        return Objects.equals(userInput, RESTART_CODE) || Objects.equals(userInput, EXIT_CODE);
     }
 
     public boolean exitOrReStartCheck(String userInput) {

@@ -8,7 +8,7 @@ public class InputView {
 
     private static final String INPUT_SENTENCE = "숫자를 입력해주세요 : ";
     private static final String EXIT_SENTENCE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
-    private final Validator validator = new Validator();
+    private static final Validator validator = new Validator();
 
 
     public String getUserInput() {
@@ -23,7 +23,7 @@ public class InputView {
     public String getExitOrRestart() {
         System.out.println(EXIT_SENTENCE);
         String input = Console.readLine();
-        if (!validator.stringCheck(input) && !validator.oneOrTwoNumberCheck(input)) {
+        if (!validator.exitOrReStartCheck(input)) {
             throw new IllegalArgumentException();
         }
         return input;
