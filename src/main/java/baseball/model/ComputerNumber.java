@@ -16,8 +16,11 @@ public class ComputerNumber {
         List<Integer> computerNumbers = new ArrayList<>();
         while (computerNumbers.size() < MAX_LENGTH) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
-            computerNumbers.add(randomNumber);
+            if (!computerNumbers.contains(randomNumber)) {
+                computerNumbers.add(randomNumber);
+            }
         }
         return computerNumbers;
     }
+
 }
